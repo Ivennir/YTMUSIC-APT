@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to YouTube Music...</title>
+    <title>Open YouTube Music</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -32,6 +32,19 @@
             font-weight: bold;
             color: #d93025;
         }
+        button {
+            padding: 10px 20px;
+            background-color: #ff5c5c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #e53e3e;
+        }
         .footer {
             margin-top: 30px;
             font-size: 0.9em;
@@ -39,32 +52,26 @@
         }
     </style>
     <script>
-        let countdown = 4;
+        function openYTMusic() {
+            // URL untuk membuka YouTube Music
+            const webLink = "https://music.youtube.com/watch?v=58-AKkNMZNQ&si=9sSPBnwLwuoJTxNR";
+            const appLink = "https://music.youtube.com/watch?v=58-AKkNMZNQ&si=9sSPBnwLwuoJTxNR";
 
-        function redirectToYouTubeMusic() {
-            // Mulai hitungan mundur
-            const countdownInterval = setInterval(() => {
-                document.getElementById("countdown").innerText = countdown;
-                countdown--;
+            // Mencoba membuka aplikasi YouTube Music terlebih dahulu
+            window.location.href = appLink;
 
-                // Setelah hitungan mundur selesai, buka versi web
-                if (countdown < 0) {
-                    clearInterval(countdownInterval);
-                    window.location.href = "https://music.youtube.com/watch?v=58-AKkNMZNQ&si=9sSPBnwLwuoJTxNR";
-                }
-            }, 1000);
-
-            // Coba buka aplikasi YouTube Music di Android atau iOS
-            setTimeout(() => {
-                window.location.href = "https://music.youtube.com/watch?v=58-AKkNMZNQ&si=9sSPBnwLwuoJTxNR";
+            // Setelah 1 detik, alihkan ke versi web jika aplikasi tidak terbuka
+            setTimeout(function() {
+                window.location.href = webLink;
             }, 1000);
         }
     </script>
 </head>
-<body onload="redirectToYouTubeMusic()">
+<body>
     <div class="container">
-        <h1>Mengalihkan ke YouTube Music...</h1>
-        <p>Jika aplikasi YouTube Music tidak terbuka, Anda akan dialihkan ke versi web dalam <span id="countdown">4</span> detik.</p>
+        <h1>Open YouTube Music</h1>
+        <p>Klik tombol di bawah untuk membuka lagu di aplikasi YouTube Music. Jika aplikasi tidak terpasang, Anda akan diarahkan ke versi web.</p>
+        <button onclick="openYTMusic()">Open YouTube Music</button>
     </div>
     <div class="footer">
         <p>&copy; 2024 IVENNIR | Hak Cipta Dilindungi</p>
