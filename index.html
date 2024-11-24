@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to YouTube Music...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 40px auto;
+        }
+        h1 {
+            font-size: 1.8em;
+            color: #d93025;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        #countdown {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #d93025;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
+    <script>
+        let countdown = 4;
+
+        function redirectToYouTubeMusic() {
+            // Mulai hitungan mundur
+            const countdownInterval = setInterval(() => {
+                document.getElementById("countdown").innerText = countdown;
+                countdown--;
+
+                // Setelah hitungan mundur selesai, buka versi web
+                if (countdown < 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = "https://music.youtube.com/watch?v=58-AKkNMZNQ&si=9sSPBnwLwuoJTxNR";
+                }
+            }, 1000);
+
+            // Coba buka aplikasi YouTube Music di Android atau iOS
+            setTimeout(() => {
+                window.location.href = "https://music.youtube.com/watch?v=58-AKkNMZNQ&si=9sSPBnwLwuoJTxNR";
+            }, 1000);
+        }
+    </script>
+</head>
+<body onload="redirectToYouTubeMusic()">
+    <div class="container">
+        <h1>Mengalihkan ke YouTube Music...</h1>
+        <p>Jika aplikasi YouTube Music tidak terbuka, Anda akan dialihkan ke versi web dalam <span id="countdown">4</span> detik.</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 IVENNIR | Hak Cipta Dilindungi</p>
+    </div>
+</body>
+</html>
